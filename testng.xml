@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name= "Auto1 Test">
+    <test name="Recruitment Process Test">
+        <classes>
+            <class name="com.auto1.test.tests.BaseTest" />
+        </classes>
+    </test>
+</suite>

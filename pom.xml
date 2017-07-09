@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.auto1.test</groupId>
+    <artifactId>auto1-test</artifactId>
+    <version>1.0-SNAPSHOT</version>
+
+    <name>auto1 Test</name>
+    <description>Test for Auto1's recruitment process - Aris Angelis</description>
+
+    <properties>
+        <!-- Test Configuration -->
+        <webdriver.chrome.driver>C:\\tools\\selenium-server\\chromedriver_2.25.exe</webdriver.chrome.driver>
+
+        <!-- Dependencies' configuration -->
+        <selenium.version>3.0.1</selenium.version>
+        <selenium.server.version>3.2.0</selenium.server.version>
+        <testng.version>6.11</testng.version>
+        <surefire.version>2.19.1</surefire.version>
+
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.seleniumhq.selenium</groupId>
+            <artifactId>selenium-java</artifactId>
+            <version>${selenium.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.seleniumhq.selenium</groupId>
+            <artifactId>selenium-server</artifactId>
+            <version>${selenium.server.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.testng</groupId>
+            <artifactId>testng</artifactId>
+            <version>${testng.version}</version>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-compiler-plugin</artifactId>
+                    <configuration>
+                        <source>1.8</source>
+                        <target>1.8</target>
+                    </configuration>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-surefire-plugin</artifactId>
+                    <version>${surefire.version}</version>
+                    <configuration>
+                        <systemPropertyVariables>
+                            <webdriver.chrome.driver>${webdriver.chrome.driver}</webdriver.chrome.driver>
+                        </systemPropertyVariables>
+                        <suiteXmlFiles>
+                            <suiteXmlFile>testng.xml</suiteXmlFile>
+                        </suiteXmlFiles>
+                    </configuration>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+    </build>
+
+</project>
